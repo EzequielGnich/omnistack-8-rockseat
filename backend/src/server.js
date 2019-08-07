@@ -1,20 +1,21 @@
 // Importações de terceiros
+const cors = require('cors')
+const mongoose = require('mongoose')
 const express = require('express')
 const server = express()
-const mongoose = require('mongoose')
 
+// Variaveis
+const port = process.env.PORT || 3333
 const mongo = 'mongodb+srv://EzequielGnich:26eg15111990eg@cluster0-ux1ju.mongodb.net/omnistack8?retryWrites=true&w=majority'
 
 // Minhas importações
 const routes = require('./routes')
 
-// Configuração com o banco de dados
+// Configurações
+server.use(cors())
 mongoose.connect(mongo, {
   useNewUrlParser: true
 })
-
-// Configurações
-const port = process.env.PORT || 3333
 server.use(express.json())
 server.use(routes)
 
