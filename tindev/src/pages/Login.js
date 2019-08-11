@@ -43,7 +43,7 @@ export default function Login ({ navigation }) {
 
     // Faz a primeira navegação para a Main.js caso não existe um
     // usuário cadasrtado
-    navigation.navigate('Main', { _id })
+    navigation.navigate('Main', { user: _id })
   }
   return (
     <KeyboardAvoidingView
